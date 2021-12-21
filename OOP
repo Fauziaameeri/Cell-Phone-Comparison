@@ -1,0 +1,199 @@
+import java.util.*;
+
+class Main {
+
+// Method to print menu on the screen
+
+public static void display_menu(){
+
+  System.out.println("Please choose one of the following phones. Enter the menu number");
+
+  System.out.println("1. Galaxy Note 9");
+
+  System.out.println("2. Iphone 11");
+
+  System.out.println("3. Nord 5G");
+
+  System.out.println("4. Galaxy S9");
+
+  System.out.println("5. Realme 7 pro");
+
+}
+
+
+
+// Choose which phone the user selected based on the menu option
+
+public static Phone pretty_print_phone(int choice1,Phone phone1, Phone phone2, Phone phone3, Phone phone4, Phone phone5){
+
+  switch(choice1){
+
+    case 1:
+
+      return phone1;
+
+    case 2:
+
+      return phone2;
+
+    case 3:
+
+      return phone3;
+
+    case 4:
+
+      return phone4;
+
+    case 5:
+
+      return phone5;
+
+    default:
+
+      return phone1;
+
+  }
+
+}
+
+// Comparision between phones
+
+// Print which one has more ram or storage or price
+
+// Compare value of phones based on price and storage
+
+public static void compare_phone(Phone phone_a, Phone phone_b){
+
+  if(phone_a.storage>phone_b.storage)
+
+    System.out.println("Phone A as more storage");
+
+  else
+
+    System.out.println("Phone B as more storage");
+
+
+
+  if(phone_a.ram>phone_b.ram)
+
+    System.out.println("Phone A as more ram");
+
+  else
+
+    System.out.println("Phone B as more ram");
+
+
+
+  if(phone_a.price>phone_b.price)
+
+    System.out.println("Phone A is more costly");
+
+  else
+
+    System.out.println("Phone B is more costly");
+
+
+
+  if(phone_a.price/phone_a.storage<phone_b.price/phone_b.storage)
+
+    System.out.println("\nPhone A has better value");
+
+  else
+
+    System.out.println("\nPhone B has better value");
+
+}
+
+ public static void main(String[] args) {
+
+  Phone phone1 = new Phone("Galaxy Note 9", "Samsung", 900, 128, 6);
+
+  Phone phone2 = new Phone("Iphone 11", "Apple", 1100, 128, 4);
+
+  Phone phone3 = new Phone("Nord 5G", "One Plus", 700, 64, 4);
+
+  Phone phone4 = new Phone("Galaxy S9", "Samsung", 750, 128, 6);
+
+  Phone phone5 = new Phone("Realme 7 pro", "Realme", 750, 128, 8);
+
+  display_menu();
+
+  Scanner sc = new Scanner(System.in);
+
+  int choice1, choice2;
+
+  choice1 = sc.nextInt();
+
+  display_menu();
+
+  choice2 = sc.nextInt();
+
+  Phone phone_a = pretty_print_phone(choice1, phone1, phone2, phone3, phone4, phone5);
+
+  Phone phone_b = pretty_print_phone(choice2, phone1, phone2, phone3, phone4, phone5);
+
+  System.out.println("User choose following phones");
+
+  System.out.println(phone_a.print_pretty());
+
+  System.out.println(phone_b.print_pretty());
+
+  compare_phone(phone_a, phone_b);
+
+ }
+
+}
+
+phone.java (file name)
+
+
+
+public class Phone{
+
+  String phone_name;
+
+  String manufacturer;
+
+  float price;
+
+  int storage;
+
+  int ram;
+
+
+
+  public Phone(String phone_name, String manufacturer, float price, int storage, int ram){
+
+    this.phone_name = phone_name;
+
+    this.manufacturer = manufacturer;
+
+    this.price = price;
+
+    this.storage = storage;
+
+    this.ram = ram;
+
+  } 
+
+  public String print_pretty(){
+
+    String output = "";
+
+    output+= "Phone name: "+ phone_name + "\n";
+
+    output+= "Manufacturer: "+ manufacturer +"\n";
+
+    output+= "Price: : "+ Float.toString(price) + " dollars"+"\n";
+
+    output+= "storage: " + Integer.toString(storage) + " GB" + "\n";
+
+    output+= "Ram: " + Integer.toString(ram) + " GB" + "\n";
+
+    return output;
+
+  }
+
+}
+
+
